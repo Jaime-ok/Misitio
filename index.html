@@ -1,0 +1,62 @@
+<htmlml>
+    <html   lang ="es">
+        
+        <head>
+		    <title>
+                Ajax1
+            </title>
+			
+            <style>
+                body{background-color:rgb(34, 56, 126)}
+         h1{text-align:center;color:orange}
+         li{list-style: none;display: inline-block;background-color: white;margin-left: 5px; padding:5px;width: 130px;
+            text-align:center;border-radius: 10px;}
+            #noticias{margin-left: -40px;}
+            
+            #contenido{width: 50%;margin-left: 100px; height:150px;border-bottom:solid 1px white ;}
+            #principal{width: 100%;}
+            #Context{border:solid 1px white ; height: 30px;width: 100%;}
+            h2{color:white;border-bottom:solid 1px white}
+            </style>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+        <script>
+
+        $("document").ready(function(){
+                
+            $("#noticias a").click(function (){
+
+                $("#Context").load("generales.html");
+
+                return false;
+            })
+        });
+
+        </script>
+
+
+        </head>
+        
+		<body>
+					
+             <header>
+				<h1>Noticias varias Ajax</h1>
+            </header>	
+
+            <div id="contenido">
+                <div id="principal">
+                    <h2>Todas las noticias</h2>
+                    <ul id="noticias">
+                        <li><a href="generales.html">Noticias Generales</a></li>
+                        <li><a href="deportes.html">Noticias de deporte</a></li>
+                        <li><a href="tiempo.html">Noticias de tiempo</a></li>
+                    </ul>
+                    <div id="Context"></div>
+                </div>
+            </div>
+        </body>
+        
+    </html>
