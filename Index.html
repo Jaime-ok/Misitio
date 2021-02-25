@@ -1,0 +1,65 @@
+<htmlml>
+    <html   lang ="es">
+        
+        <head>
+		    <title>
+                atributos
+            </title>
+			
+            <style>
+         
+            </style>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+        <script>
+
+        $("document").ready(function(){
+                
+                $("#login").submit(function(){
+
+
+                    var datosfor= {usu:$("#usuario").val(), // da igual como las llame, per ese nombre tambien en el archivo php
+                    
+                                   pas:$("#pass").val()
+                    }
+
+                    $.get("login.php", datosfor, procesarDatos)
+                });
+
+                function procesarDatos (Datosdevueltos){
+
+                    if (Datosdevueltos="autorizado"){
+
+                        $("#contex").html("<p>Usuario correcto</p>")
+
+                    }else{ $("#contex").html("<p>Usuario desconocido</p>")}
+
+
+                }
+            
+        });
+
+        </script>
+
+
+        </head>
+        
+		<body ng-controller="TestApp">
+					
+             <header>
+				<h1>atributos</h1>
+            </header>	
+
+            <form  method="get" action="login.php" id="login" autocomplete="off">
+                <table>
+                    <tr><td><label for ="usuario">Usuario</label></td><td><input type="text" id="usuario"></tr>
+                    <tr><td><label for ="pass">Contraseña</label></td><td><input type="password" id="pass"></tr>
+                    <tr><td><input type ="submit" value="enviar"></td></tr>
+                </table>
+            </form>
+            <div id="contex"></div>
+         </body>
+    </html>
