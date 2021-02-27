@@ -1,0 +1,70 @@
+<htmlml>
+    <html   lang ="es">
+        
+        <head>
+		    <title>
+                PHPadmin
+            </title>
+			
+            <style>
+         
+            </style>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+        <script>
+
+        $("document").ready(function(){
+                
+                $("#login").submit(function(){
+
+                   // var datorfor=$(this).serialize();
+                    
+                     var datorfor= {usu:$("#usuario").val(), // da igual como las llame, per ese nombre tambien en el archivo php
+                    
+                                   pas:$("#pass").val()}
+
+                         $.get("login.php", datorfor, procesarDatos);//.error(ProcesarError); 
+                         return false;
+                     });
+
+
+
+                function procesarDatos (Datosdevueltos){
+               alert(Datosdevueltos);
+                    if (Datosdevueltos == "autorizado"){
+
+              $("#contex").html("<p>Usuario correcto</p>");
+
+                    }else{ $("#contex").html("<p> desconocido</p>")}
+                }
+
+              /*   function ProcesarError(){
+                    var msgError= "opps, ha ocurrido alinesperado";
+                    $("#contex").html("<p>"  +msgError+ "</p>");
+                } */
+            });
+
+        </script>
+
+
+        </head>
+        
+		<body ng-controller="TestApp">
+					
+             <header>
+				<h1>PHPadmin</h1>
+            </header>	
+
+            <form id="login" action="login.php" method="get"  autocomplete="off">
+                <table>
+                    <tr><td><label for ="usuario">Usuario</label></td><td><input type="text" id="usuario"></tr>
+                    <tr><td><label for ="pass">Contraseña</label></td><td><input type="text" id="pass"></tr>
+                    <tr><td><input type ="submit" value="enviar"></td></tr>
+                </table>
+            </form>
+            <div id="contex"></div>
+         </body>
+    </html>
